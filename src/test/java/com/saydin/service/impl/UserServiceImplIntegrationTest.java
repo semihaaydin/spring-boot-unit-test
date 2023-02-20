@@ -1,6 +1,7 @@
 package com.saydin.service.impl;
 
 import com.saydin.dto.UserDto;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -20,8 +21,15 @@ public class UserServiceImplIntegrationTest {
         userDto.setLastName("dadacds");
         userDto.setUsername("ssddvsdv");
         userDto.setEmail("aascaca");
-
         UserDto result = userService.save(userDto);
         assertFalse(result.getId().isEmpty());
+    }
+
+    @Test
+    public void testSaveException(){
+        UserDto userDto=new UserDto();
+        userDto.setLastName("dadacds");
+        userDto.setEmail("aascaca");
+        Assertions.assertThrows(IllegalArgumentException.class,()->{userService.save(userDto);});
     }
 }

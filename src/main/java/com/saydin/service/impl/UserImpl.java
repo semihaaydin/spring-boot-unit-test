@@ -10,6 +10,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.Assert;
 
 import java.util.List;
 import java.util.UUID;
@@ -27,6 +28,8 @@ public class UserImpl implements UserService {
     @Transactional
     public UserDto save(UserDto orgUserDto) {
         orgUserDto.setId(UUID.randomUUID().toString());
+        Assert.notNull(orgUserDto.getId(),"Id Setlenmedi");
+        Assert.notNull(orgUserDto.getUsername(),"Username Bulunamadı");
         User user=repository.save(modelMapper.map(orgUserDto, User.class));
         return modelMapper.map(user, UserDto.class);
     }
