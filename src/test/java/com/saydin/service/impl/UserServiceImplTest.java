@@ -1,10 +1,9 @@
-package com.saydin.com.saydin.service;
+package com.saydin.service.impl;
 
 import com.saydin.dto.UserDto;
 import com.saydin.entity.User;
 import com.saydin.repo.UserRepository;
-import com.saydin.service.imp.UserImp;
-import org.apache.catalina.UserDatabase;
+import com.saydin.service.impl.UserImpl;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentMatchers;
@@ -20,7 +19,7 @@ import static org.mockito.Mockito.when;
 public class UserServiceImplTest {
 
     @InjectMocks //asıl test etmek istediğimiz class
-    private UserImp userService;
+    private UserImpl userService;
 
     @Mock
     private UserRepository userRepository;

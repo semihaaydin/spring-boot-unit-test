@@ -1,4 +1,4 @@
-package com.saydin.service.imp;
+package com.saydin.service.impl;
 
 
 import com.saydin.dto.UserDto;
@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
-public class UserImp implements UserService {
+public class UserImpl implements UserService {
 
     private final UserRepository repository;
     private final ModelMapper modelMapper;
